@@ -1,6 +1,20 @@
 <!doctype html>
+
 <html lang="en">
   <head>
+    <style>
+      .img_container {
+      position: relative;
+      text-align: center;
+      color: white;
+      }
+      .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      }
+    </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,18 +88,31 @@
 
 <!-- Main Content-->
 <main>
-  <section class="py-5 text-center container">
+  <div class="img_container">
+    <img src="img/sea.jfif" style="width: 100%;">
+    <div class="centered">
+      <h1 class="fw-light">Yi's Academic Projects</h1>
+        <p >Some things are done now or never.</p>
+        <p>
+          <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
+          <a href="Yi Chen CV 2021 vs6.pdf" target ="_blank" class="btn btn-primary my-2">My Resume</a>
+        </p>
+    </div>
+        
+  </div>
+
+  <!-- <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Yi's Academic Projects</h1>
         <p class="lead text-muted">Some things are done now or never.</p>
         <p>
-          <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
+          
           <a href="Yi Chen CV 2021 vs6.pdf" target ="_blank" class="btn btn-primary my-2">My Resume</a>
         </p>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <div class="album py-5 bg-secondary">
     <div class="container">
