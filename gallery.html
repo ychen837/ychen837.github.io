@@ -1,6 +1,65 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+      .img_container {
+      position: relative;
+      text-align: center;
+      color: white;
+      }
+      .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      }
+
+      ul.topnav {list-style-type: none; margin: 0; padding: 0; overflow: hidden;
+      }
+
+      ul.topnav li {float: left;}
+
+      ul.topnav li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      }
+
+      ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+      ul.topnav li a.active {background-color: #4CAF50;}
+
+      ul.topnav li.right {float: right;}
+
+      ul {list-style-type: none; margin: 0; padding: 0; overflow: hidden;}
+
+      li {float: left;}
+
+      li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 5px 20px;
+      text-decoration: none;
+      }
+
+      li a:hover {
+      background-color: #111;
+      }
+      @media screen and (max-width: 600px) {
+      ul.topnav li.right, 
+      ul.topnav li {float: none;}
+      }
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+      }
+    </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,12 +114,12 @@
         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> -->
         <strong>Yi</strong>
       </a>
-      <nav class="nav d-flex justify-content-between">
-        <a class="p-2 link-secondary" href="index.html">Academic Projects</a>
-        <a class="p-2 link-secondary" href="miata.html">Project Miata</a>
-        <a class="p-2 link-secondary" href="Yi Chen CV 2021 vs5.pdf">Resume</a>
-        <a class="p-2 link-secondary" href="gallery.html">Gallery</a>
-      </nav>
+      <ul class="topnav">
+        <li><a href="index.html">Academic Projects</a></li>
+        <li><a href="miata.html">Project Miata</a></li>
+        <li><a href="Yi Chen CV 2021 vs6.pdf">Resume</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -69,22 +128,22 @@
     
     </div>
   </div>
+
 </header>
 
 <!-- Main Content-->
 <main>
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Yi's project gallery</h1>
-        <p class="lead text-muted">Coming soon!</p>
-        <img src="img/film example.jpg" width="500">
-<!--         <p>
-          <a href="Yi Chen CV 2021 vs5.pdf" target ="_blank" class="btn btn-primary my-2">My Resume</a>
-        </p> -->
-      </div>
+
+  <div class="img_container">
+    <img src="img/film example.jpg" style="width: 100%;">
+    <div class="centered">
+      <h1 class="fw-light" style="font-size:5vw">Yi's gallery</h1>
+        <p style="font-size:1.2vw">Coming soon!</p>
+        <p>
+          <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
+          <!-- <a href="Yi Chen CV 2021 vs6.pdf" target ="_blank" class="btn btn-primary my-2" style="font-size:0.8vw">My Resume</a> -->
+        </p>
     </div>
-  </section>
 
 
 
