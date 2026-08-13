@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json.schemastore.org/html-validate.schema.json",
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "attr-case": ["error", { "style": "lowercase" }],
+    "close-attr": "error",
+    "close-order": "error",
+    "deprecated": "error",
+    "doctype-case": "error",
+    "doctype-order": "error",
+    "empty-alt": ["error", { "relaxed": true }],
+    "empty-heading": "error",
+    "form-dup-name": "error",
+    "form-dup-id": "error",
+    "no-autoplay": "warn",
+    "no-dup-attr": "error",
+    "no-dup-id": "error",
+    "no-inline-style": "off",
+    "prefer-button": "warn",
+    "script-type": "off",
+    "text-nodes": "off",
+    "void-style": ["error", { "style": "omit" }]
+  }
+}

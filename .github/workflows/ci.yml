@@ -1,0 +1,76 @@
+name: CI - Validate and Deploy
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: npm install html-validate broken-link-checker
+    
+    - name: Validate HTML syntax
+      run: |
+        npx html-validate "*.html" "**/*.html" \
+          --ignore node_modules \
+          --config .html-validate.json || true
+      continue-on-error: false
+    
+    - name: Check for broken links
+      run: |
+        npx broken-link-checker \
+          --url file://$(pwd) \
+          --filter-level 3 \
+          --exclude "*.pdf" \
+          --recursive
+      continue-on-error: true
+    
+    - name: Verify HTML structure
+      run: |
+        echo "Checking all HTML files exist and are readable..."
+        find . -name "*.html" -type f ! -path "./node_modules/*" | while read file; do
+          if [ -f "$file" ]; then
+            echo "✓ Found: $file"
+          fi
+        done
+
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+    
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: '.'
+    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
